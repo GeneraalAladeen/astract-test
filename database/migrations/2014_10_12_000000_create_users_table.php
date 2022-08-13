@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', APP_ROLES)->default(DEFAULT_ROLE)->index();
-            $table->string('status')->default(PENDING_STATUS);
+            $table->enum('role', ['user' , 'admin'])->default('user')->index();
+            $table->string('status')->default('pending');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

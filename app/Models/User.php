@@ -46,6 +46,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * @return bool
+     */
+    final public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    /**
      * @return HasMany
      */
     public function messages(): HasMany

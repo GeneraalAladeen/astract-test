@@ -33,7 +33,7 @@ const HTTP_STATUS_VALIDATION_ERROR = \Illuminate\Http\Response::HTTP_UNPROCESSAB
  */
 
 const ADMIN_ROLE = 'admin';
-const USER_ROLE = 'gamer';
+const USER_ROLE = 'user';
 const DEFAULT_ROLE = USER_ROLE;
 const APP_ROLES = [ADMIN_ROLE, USER_ROLE];
 
