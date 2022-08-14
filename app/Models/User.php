@@ -23,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
     ];
 
@@ -51,6 +52,16 @@ class User extends Authenticatable
     final public function isAdmin(): bool
     {
         return $this->role === 'admin';
+    }
+
+    /**
+     * Check if the user is active
+     *
+     * @return bool
+     */
+    final public function isActive(): bool
+    {
+        return $this->status;
     }
 
     /**

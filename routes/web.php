@@ -32,5 +32,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [DashboardController::class , 'messages'])->name('admin.dashboard.messages');
         Route::get('/messages', [DashboardController::class , 'messages'])->name('admin.dashboard.messages');
         Route::get('/users', [DashboardController::class , 'users'])->name('admin.dashboard.users');
+        Route::put('/users/{user}/update', [DashboardController::class , 'updateUser'])->name('admin.users.update');
     });
 });

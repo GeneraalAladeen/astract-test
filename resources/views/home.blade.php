@@ -28,7 +28,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Message</th>
-                    <th scope="col">Created</th>
+                    <th scope="col">Date & Time</th>
                   </tr>
                 </thead>
                 <tbody>

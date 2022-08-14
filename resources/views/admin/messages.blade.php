@@ -6,20 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
                 <table class="table table-striped">
                     <thead>
                       <tr>
-                        <th scope="col">Name</th>
+                        <th scope="col">Full Name</th>
                         <th scope="col">Message</th>
-                        <th scope="col">Created</th>
+                        <th scope="col">Date & Time</th>
                       </tr>
                     </thead>
                     <tbody>

@@ -63,7 +63,7 @@ class LoginController extends Controller
                 $request->session()->put('auth.password_confirmed_at', time());
             }
 
-            if ($request->user()->status === 'pending' && !$request->user()->isAdmin()) {
+            if (!$request->user()->isActive() && !$request->user()->isAdmin()) {
                 $this->logout($request);
 
                 return back()->withErrors([
@@ -90,17 +90,7 @@ class LoginController extends Controller
     public function redirectTo(): string
     {
         $role = Auth::user()->role;
-        switch ($role) {
-            case 'admin':
-                return '/admin/users';
-                break;
-            case 'user':
-                return '/home';
-                break;
 
-            default:
-                return '/home';
-                break;
-        }
+        return $role === 'admin' ? '/admin/users' : '/home';
     }
 }
