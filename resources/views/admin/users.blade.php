@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <form class="form-group" method="GET" action={{ route('admin.dashboard.users')}}>
@@ -27,16 +27,11 @@
             <div class="card">
                 <div class="card-header">{{ __('Users') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                <div class="card-body table-responsive">
                     <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th scope="col">Name</th>
+                            <th scope="col">Full Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Status</th>
                             <th scope="col">Created</th>
@@ -51,11 +46,21 @@
                                     <td> {{ $user->status ? 'Active' : 'Pending'}}</td>
                                     <td> {{ $user->created_at }}</td>
                                     <td>
-                                        <form method="POST" action="{{ route('admin.users.update',['user' => $user->id ]) }}">
-                                            @method('PUT')
-                                            @csrf
-                                            <button type="submit">Approve</button>
-                                        </form>
+                                        @if ($user->status)
+                                            <p>N/A</p>
+                                        @else    
+                                            <form method="POST" action="{{ route('admin.users.update',['user' => $user->id ]) }}">
+                                                @method('PUT')
+                                                @csrf
+                                                <div class="row mt-2">
+                                                    <div class="col-md-12 text-md-start">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            {{ __('Approve') }}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        @endif
                                     <td>
                                 </tr>
                             @endforeach                      
