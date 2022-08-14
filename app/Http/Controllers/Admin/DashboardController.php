@@ -49,7 +49,7 @@ class DashboardController extends Controller
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\User $user
      *
-     * @return Redirect
+     * @return  \Illuminate\Http\RedirectResponse
      */
     public function updateUser(Request $request, User $user)
     {

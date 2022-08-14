@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
-            <div class="card">
+            <div class="card table-responsive">
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <table class="table table-striped">
                     <thead>
